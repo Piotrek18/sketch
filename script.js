@@ -1,4 +1,5 @@
 let grid = document.querySelector("#grid");
+let sizeBtn = document.querySelector("#sizeBtn");
 
 function createGrid(size) {
 
@@ -23,5 +24,7 @@ function changeGridSize() {
         alert ("Wrong grid size!");
     }
 }
+
+sizeBtn.addEventListener("click", changeGridSize);
 
 createGrid(16);
