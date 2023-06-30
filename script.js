@@ -3,6 +3,10 @@ let sizeBtn = document.querySelector("#sizeBtn");
 
 function createGrid(size) {
 
+    while (grid.firstChild){
+        grid.removeChild(grid.firstChild);
+    }
+
     for (let i=0; i<size; i++){
         for (let j=0; j<size; j++){
             let div = document.createElement("div");
