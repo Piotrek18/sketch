@@ -53,7 +53,7 @@ function changeGridSize() {
 function clearGrid(){
     let cells = document.querySelectorAll(".grid-Cell");
     cells.forEach(function (cell) {
-        cell.style.backgroundColor = "white";
+        cell.style.backgroundColor = "";
         cell.classList.remove("hovered");
     });
 }
