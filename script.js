@@ -1,6 +1,8 @@
 let grid = document.querySelector("#grid");
 let sizeBtn = document.querySelector("#sizeBtn");
 let clearBtn = document.querySelector("#clearBtn");
+let rgbBtn = document.querySelector("#rgbBtn");
+let isRgbMode = false;
 
 function createGrid(size) {
 
@@ -21,8 +23,21 @@ function createGrid(size) {
     grid.style.gridTemplateRows = "repeat(" + size + ", 1fr)";
 } 
 
+function getRandomColor(){
+    let letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i=0; i<6; i++){
+        color += letters[Math.floor(Math.random()*16)];
+    }
+    return color;
+}
+
 function colorChange(e){
-    e.target.classList.add("hovered");
+    if(isRgbMode) {
+        e.target.style.backgroundColor = getRandomColor();
+    }else {
+        e.target.classList.add("hovered"); 
+    }
 }
 
 function changeGridSize() {
@@ -38,20 +53,18 @@ function changeGridSize() {
 function clearGrid(){
     let cells = document.querySelectorAll(".grid-Cell");
     cells.forEach(function (cell) {
-      cell.classList.remove("hovered");
+        cell.style.backgroundColor = "white";
+        cell.classList.remove("hovered");
     });
 }
 
-function randomColor(){
-    let letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i=0; i<6; i++){
-        color += letters[Math.floor(Math.random()*16)];
-    }
-    return color;
+function toggleRgbMode(){
+    isRgbMode = !isRgbMode;
+    rgbBtn.textContent = isRgbMode ? "Default" : "RGB";
 }
 
 sizeBtn.addEventListener("click", changeGridSize);
-clearBtn.addEventListener("click", clearGrid)
+clearBtn.addEventListener("click", clearGrid);
+rgbBtn.addEventListener("click", toggleRgbMode);
 
 createGrid(16);
