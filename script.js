@@ -39,7 +39,16 @@ function clearGrid(){
     let cells = document.querySelectorAll(".grid-Cell");
     cells.forEach(function (cell) {
       cell.classList.remove("hovered");
+    });
+}
+
+function randomColor(){
+    let letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i=0; i<6; i++){
+        color += letters[Math.floor(Math.random()*16)];
     }
+    return color;
 }
 
 sizeBtn.addEventListener("click", changeGridSize);
