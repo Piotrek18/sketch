@@ -60,7 +60,7 @@ function clearGrid(){
 
 function toggleRgbMode(){
     isRgbMode = !isRgbMode;
-    rgbBtn.textContent = isRgbMode ? "Default" : "RGB";
+    rgbBtn.textContent = isRgbMode ? "Black" : "RGB";
 }
 
 sizeBtn.addEventListener("click", changeGridSize);
